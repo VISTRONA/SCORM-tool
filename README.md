@@ -19,6 +19,57 @@ General-purpose authoring tools such as eXeLearning already create interactive l
 
 The goal is not to recreate every e-learning feature. The goal is to make a focused workflow that is easier for HR staff to use.
 
+
+## Recommended Technology Stack (Can change as per your need)
+
+| Layer | Technology                          |
+|---|-------------------------------------|
+| Frontend | React + TypeScript + Vite           |
+| UI Styling | Tailwind CSS                        |
+| Drag-and-Drop | dnd-kit                             |
+| Backend | Python + FastAPI                    |
+| API Communication | REST + JSON                         |
+| Shared Course Format | JSON + JSON Schema                  |
+| PDF Processing | PyMuPDF                             |
+| Local AI Runtime | Ollama 
+| Model | Decide before hand
+| AI Architecture | Provider-based abstraction (`AIProvider`) |
+| Course Player | HTML5 + CSS + TypeScript/JavaScript |
+| Course Templates | HTML + CSS + JavaScript             |
+| SCORM Integration | JavaScript/TypeScript SCORM runtime adapter |
+| SCORM Packaging | Python XML/ZIP utilities            |
+| Validation | JSON Schema + automated tests       |
+
+
+### Technology Principles
+
+1. **Course JSON is the shared contract.** The UI, AI pipeline, templates,
+   player and SCORM generator must communicate through the same course schema.
+
+2. **AI is optional.** The complete manual authoring → preview → template →
+   SCORM export workflow must function without the AI subsystem.
+
+3. **AI providers are replaceable.** The initial implementation uses a local
+   model through Ollama. Model-specific functionality must remain behind an
+   `AIProvider` abstraction so a company-approved workspace AI can be added
+   later without redesigning the application.
+
+4. **AI generates course data, not SCORM code.** AI output must be validated
+   against the shared Course JSON schema before entering the editor.
+
+5. **SCORM exports are self-contained.** Generated packages should bundle the
+   required HTML, CSS, JavaScript and assets rather than depending on external
+   runtime resources.
+
+6. **SCORM communication is isolated.** LMS-specific SCORM communication
+   should remain behind a runtime adapter so the course player and authoring
+   application are not tightly coupled to a particular SCORM version.
+
+7. **Implementation freedom.** These technologies are the recommended baseline.
+   Developers may make implementation-level decisions within their assigned
+   subsystem as long as shared schemas, API contracts and integration
+   boundaries remain compatible.
+
 ## Core design principles
 
 1. **Manual authoring must work without AI.**
