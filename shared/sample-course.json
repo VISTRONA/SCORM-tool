@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "1.0",
+  "course": {
+    "id": "sample-course",
+    "title": "Sample HR Training Course",
+    "description": "Shared integration fixture for all development tracks.",
+    "objectives": [
+      "Understand the course player workflow",
+      "Verify shared Course JSON compatibility"
+    ],
+    "slides": [
+      {
+        "id": "intro",
+        "type": "content",
+        "title": "Introduction",
+        "content": "This is the shared sample course used by all subsystems."
+      },
+      {
+        "id": "image-example",
+        "type": "image",
+        "title": "Image Example",
+        "content": "Example image slide.",
+        "asset": {
+          "path": "assets/example.png",
+          "alt": "Example placeholder"
+        }
+      },
+      {
+        "id": "video-example",
+        "type": "video",
+        "title": "Video Example",
+        "asset": {
+          "path": "assets/example.mp4"
+        }
+      },
+      {
+        "id": "quiz-example",
+        "type": "quiz",
+        "title": "Knowledge Check",
+        "question": "What is the shared integration format in this project?",
+        "options": [
+          {"id": "a", "text": "Course JSON"},
+          {"id": "b", "text": "A theme-specific HTML file"},
+          {"id": "c", "text": "A local LLM prompt"}
+        ],
+        "correctOptionId": "a"
+      }
+    ]
+  }
+}

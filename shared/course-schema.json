@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/hr-scorm-studio/course-schema.json",
+  "title": "HR SCORM Studio Course",
+  "type": "object",
+  "required": ["schemaVersion", "course"],
+  "properties": {
+    "schemaVersion": {"type": "string", "const": "1.0"},
+    "course": {
+      "type": "object",
+      "required": ["id", "title", "objectives", "slides"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "title": {"type": "string", "minLength": 1},
+        "description": {"type": "string"},
+        "objectives": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "slides": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "oneOf": [
+              {"$ref": "#/$defs/contentSlide"},
+              {"$ref": "#/$defs/imageSlide"},
+              {"$ref": "#/$defs/videoSlide"},
+              {"$ref": "#/$defs/quizSlide"}
+            ]
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "$defs": {
+    "baseSlide": {
+      "type": "object",
+      "required": ["id", "type", "title"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "type": {"type": "string"},
+        "title": {"type": "string"}
+      }
+    },
+    "contentSlide": {
+      "allOf": [
+        {"$ref": "#/$defs/baseSlide"},
+        {
+          "properties": {
+            "type": {"const": "content"},
+            "content": {"type": "string"}
+          },
+          "required": ["content"]
+        }
+      ]
+    },
+    "imageSlide": {
+      "allOf": [
+        {"$ref": "#/$defs/baseSlide"},
+        {
+          "properties": {
+            "type": {"const": "image"},
+            "content": {"type": "string"},
+            "asset": {
+              "type": "object",
+              "required": ["path"],
+              "properties": {
+                "path": {"type": "string", "minLength": 1},
+                "alt": {"type": "string"}
+              }
+            }
+          },
+          "required": ["asset"]
+        }
+      ]
+    },
+    "videoSlide": {
+      "allOf": [
+        {"$ref": "#/$defs/baseSlide"},
+        {
+          "properties": {
+            "type": {"const": "video"},
+            "asset": {
+              "type": "object",
+              "required": ["path"],
+              "properties": {
+                "path": {"type": "string", "minLength": 1}
+              }
+            }
+          },
+          "required": ["asset"]
+        }
+      ]
+    },
+    "quizSlide": {
+      "allOf": [
+        {"$ref": "#/$defs/baseSlide"},
+        {
+          "properties": {
+            "type": {"const": "quiz"},
+            "question": {"type": "string", "minLength": 1},
+            "options": {
+              "type": "array",
+              "minItems": 2,
+              "items": {
+                "type": "object",
+                "required": ["id", "text"],
+                "properties": {
+                  "id": {"type": "string", "minLength": 1},
+                  "text": {"type": "string", "minLength": 1}
+                }
+              }
+            },
+            "correctOptionId": {"type": "string", "minLength": 1}
+          },
+          "required": ["question", "options", "correctOptionId"]
+        }
+      ]
+    }
+  }
+}
