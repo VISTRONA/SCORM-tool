@@ -1,3 +1,26 @@
+## Initial SCORM Target
+
+The initial SCORM implementation targets **SCORM 1.2**.
+
+SCORM-specific LMS communication must remain isolated behind a runtime
+adapter. Course content and the learner player must not directly depend
+on SCORM 1.2 APIs.
+
+This allows additional runtime adapters, including SCORM 2004, to be
+introduced without redesigning the Course JSON format or learner player.
+
+The initial integration must support:
+
+- LMS initialization
+- course launch
+- lesson status
+- score reporting
+- suspend data
+- course resume
+- LMS commit
+- clean session termination
+
+Final packages must be tested against the target Enthral LMS environment.
 # Architecture Decisions
 
 ## Agreed
