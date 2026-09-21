@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Makes the player responsive on laptops, tablets and phones -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Course Player</title>
+    <link rel="stylesheet" href="./src/styles.css">
+</head>
+
+<body>
+
+ <body>
+
+    <div id="player">
+
+        <!-- LEFT SIDEBAR -->
+        <aside id="sidebar">
+
+            <div id="course-info">
+                <h1 id="course-title"></h1>
+
+                <div id="progress-text">0% COMPLETE</div>
+
+                <div id="progress-bar">
+                    <div id="progress-fill"></div>
+                </div>
+            </div>
+
+            <div id="slide-list">
+                <!-- Slides will be inserted by JavaScript -->
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main id="main-content">
+
+            <section id="slide-container">
+            </section>
+
+            <nav id="navigation">
+
+                <button id="previous-button" type="button">
+                    ← Previous
+                </button>
+
+                <span id="slide-progress"></span>
+
+                <button id="next-button" type="button">
+                    Next →
+                </button>
+
+            </nav>
+
+        </main>
+
+    </div>
+
+    <script type="module" src="./src/player.js"></script>
+
+</body>
+</html>
