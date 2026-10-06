@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "1.0",
+  "course": {
+    "id": "demo-course",
+    "title": "Sustainability Training",
+    "description": "Introduction to sustainability concepts.",
+    "objectives": [
+      "Understand the basic concepts of sustainability.",
+      "Identify the key sustainability pillars."
+    ],
+    "slides": [
+      {
+        "id": "slide-1",
+        "type": "content",
+        "title": "Welcome to Sustainability Training",
+        "content": "Welcome to the course. In this training, you will learn about the key principles of sustainability and how they apply in the workplace."
+      },
+      {
+        "id": "slide-2",
+        "type": "content",
+        "title": "What is Sustainability?",
+        "content": "Sustainability means meeting present needs while protecting the ability of future generations to meet their needs."
+      },
+      {
+        "id": "slide-3",
+        "type": "content",
+        "title": "Key Sustainability Pillars",
+        "content": "The major pillars include environmental, social and economic sustainability."
+      },
+      {
+    "id": "slide-4",
+    "type": "image",
+    "title": "The Three Pillars of Sustainability",
+    "content": "Sustainability is commonly understood through environmental, social and economic dimensions.",
+    "asset": {
+        "path": "assets/sustainability.svg",
+        "alt": "Diagram showing the three pillars of sustainability"
+    }
+},
+{
+    "id": "slide-5",
+    "type": "video",
+    "title": "Sustainability Overview",
+    "asset": {
+        "path": "assets/demo.mp4"
+    }
+},
+{
+    "id": "quiz-1",
+    "type": "quiz",
+    "title": "Knowledge Check",
+    "question": "Which of the following is a sustainability pillar?",
+    "options": [
+        {
+            "id": "a",
+            "text": "Environmental"
+        },
+        {
+            "id": "b",
+            "text": "Gaming"
+        },
+        {
+            "id": "c",
+            "text": "Entertainment"
+        }
+    ],
+    "correctOptionId": "a"
+}
+    ]
+  }
+}
